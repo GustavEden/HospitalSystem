@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Patient.PatientLogInController">
+   <children>
+      <Button fx:id="newPatient" layoutX="220.0" layoutY="215.0" mnemonicParsing="false" onAction="#registration" prefHeight="73.0" prefWidth="160.0" text="Ny Patient" />
+      <Label layoutX="22.0" layoutY="14.0" text="DbConnection" />
+      <Label fx:id="dbStatus" layoutX="123.0" layoutY="14.0" text="true" />
+      <TextField fx:id="medicalNbrLogin" layoutX="220.0" layoutY="83.0" prefHeight="25.0" prefWidth="160.0" promptText="MEDICAL ID" />
+      <Button fx:id="LogIn" layoutX="220.0" layoutY="119.0" mnemonicParsing="false" onAction="#login" prefHeight="73.0" prefWidth="160.0" text="Log in" />
+      <Separator layoutX="220.0" layoutY="199.0" prefHeight="1.0" prefWidth="160.0" />
+   </children>
+</AnchorPane>
