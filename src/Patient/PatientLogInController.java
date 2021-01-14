@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -50,23 +52,19 @@ public class PatientLogInController implements Initializable {
 
     try{
         if(this.patientLogIn.isLogin(this.medicalNbrLogin.getText())){
-
             Stage stage = (Stage)this.logIn.getScene().getWindow();
             stage.close();
-
-
             try{
                 Stage patientview = new Stage();
                 FXMLLoader loader = new FXMLLoader();
                 Pane root = (Pane)loader.load(getClass().getResource("/PatientView/PatientView.FXML").openStream());
                 PatientViewController patientViewController = (PatientViewController)loader.getController();
+                patientViewController.medNbr(this.medicalNbrLogin.getText());
 
                 Scene scene = new Scene(root);
                 patientview.setScene(scene);
                 patientview.setTitle("Patient View");
                 patientview.show();
-
-
             }catch (Exception e){
                 e.printStackTrace();
             }

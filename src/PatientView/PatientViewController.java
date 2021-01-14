@@ -47,8 +47,29 @@ public class PatientViewController implements Initializable {
 
     private ObservableList <PatientData> data;
 
-    private String sql = "SELECT * FROM PATIENT WHERE Med_nbr =1 ";
+    private String sql;
 
+    public void medNbr(String nbr){
+        sql = "SELECT * FROM PATIENT WHERE Med_nbr =" + nbr;
+
+
+        try{
+            Connection conn = dbConnection.getConnection();
+            this.data= FXCollections.observableArrayList();
+            ResultSet rs1 = conn.createStatement().executeQuery(sql);
+
+            this.phoneCL.setText(rs1.getString(1));
+            this.medicalNbrCL.setText(rs1.getString(2));
+            this.firstNameCL.setText(rs1.getString(3));
+            this.lastNameCL.setText(rs1.getString(4));
+            this.sexCL.setText(rs1.getString(5));
+            this.adressCL.setText(rs1.getString(6));
+            this.birthdateCL.setText(rs1.getString(7));
+            this.registrationCL.setText(rs1.getString(8));
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize (URL url, ResourceBundle rb){
@@ -83,17 +104,8 @@ public class PatientViewController implements Initializable {
         this.phoneCL.setCellValueFactory(new PropertyValueFactory<PatientData, String>("phone"));
         this.birthdateCL.setCellValueFactory(new PropertyValueFactory<PatientData, String>("birthdate"));
         this.registrationCL.setCellValueFactory(new PropertyValueFactory<PatientData, String>("registrationDate"));
-
-
-
  */
-
-
-
     }
-
-
-
 
     @FXML
     private void changeInfo(ActionEvent event){
