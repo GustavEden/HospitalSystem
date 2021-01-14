@@ -47,7 +47,7 @@ public class PatientViewController implements Initializable {
 
     private ObservableList <PatientData> data;
 
-    private String sql = "SELECT * FROM PATIENT WHERE Med_nbr =? ";
+    private String sql = "SELECT * FROM PATIENT WHERE Med_nbr =1 ";
 
 
     @Override
