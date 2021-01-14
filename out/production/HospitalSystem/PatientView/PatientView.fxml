@@ -8,37 +8,43 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientView.PatientViewController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientView.PatientViewController">
    <children>
-      <TableView layoutX="4.0" layoutY="7.0" prefHeight="69.0" prefWidth="592.0">
-        <columns>
-          <TableColumn prefWidth="65.0" text="First name" />
-          <TableColumn prefWidth="63.0" text="last name" />
-            <TableColumn prefWidth="45.0" text="Sex" />
-            <TableColumn prefWidth="94.0" text="Adress" />
-            <TableColumn prefWidth="87.0" text="Phone" />
-            <TableColumn prefWidth="70.0" text="Birthdate" />
-            <TableColumn prefWidth="81.0" text="Medical Nbr" />
-            <TableColumn prefWidth="95.0" text="Regestration" />
-        </columns>
-      </TableView>
-      <Separator layoutX="-4.0" layoutY="76.0" prefHeight="10.0" prefWidth="600.0" />
-      <TableView layoutX="14.0" layoutY="148.0" prefHeight="200.0" prefWidth="226.0">
+      <Separator layoutX="-5.0" layoutY="184.0" prefHeight="25.0" prefWidth="1000.0" />
+      <TableView layoutX="25.0" layoutY="374.0" prefHeight="388.0" prefWidth="272.0">
         <columns>
           <TableColumn prefWidth="52.0" text="Emp_id" />
           <TableColumn prefWidth="47.0" text="Price" />
             <TableColumn prefWidth="152.0" text="Specialization" />
         </columns>
       </TableView>
-      <TextField layoutX="14.0" layoutY="86.0" promptText="Specialization" />
-      <Button layoutX="170.0" layoutY="86.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Search" />
-      <TableView layoutX="342.0" layoutY="148.0" prefHeight="200.0" prefWidth="200.0">
+      <TextField layoutX="25.0" layoutY="342.0" promptText="Specialization" />
+      <Button layoutX="180.0" layoutY="342.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Search" />
+      <TableView layoutX="512.0" layoutY="400.0" prefHeight="328.0" prefWidth="423.0">
         <columns>
-          <TableColumn prefWidth="194.0" text="C1" />
+          <TableColumn prefWidth="199.0" text="C1" />
         </columns>
       </TableView>
-      <Button layoutX="341.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Book" />
-      <Label layoutX="348.0" layoutY="118.0" prefHeight="17.0" prefWidth="109.0" text="Booking available:" />
-      <Label layoutX="451.0" layoutY="118.0" text="True" />
+      <Button layoutX="735.0" layoutY="750.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Book" />
+      <Label layoutX="565.0" layoutY="314.0" prefHeight="17.0" prefWidth="109.0" text="Booking available:" />
+      <Label layoutX="707.0" layoutY="314.0" text="True" />
+      <Button fx:id="loadDataBtn" layoutX="245.0" layoutY="134.0" mnemonicParsing="false" onAction="#loadPatientData" prefHeight="25.0" prefWidth="237.0" text="Load data" />
+      <Button fx:id="updateDataBtn" layoutX="525.0" layoutY="134.0" mnemonicParsing="false" onAction="#changeInfo" prefHeight="25.0" prefWidth="237.0" text="Update data" />
+      <TextField fx:id="firstNameCL" layoutX="179.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <TextField fx:id="lastNameCL" layoutX="293.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <TextField fx:id="sexCL" layoutX="408.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <TextField fx:id="adressCL" layoutX="511.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <TextField fx:id="phoneCL" layoutX="609.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <Label layoutX="47.0" layoutY="27.0" text="Medical number" />
+      <Label layoutX="180.0" layoutY="27.0" text="First name" />
+      <Label layoutX="299.0" layoutY="27.0" text="Last name" />
+      <Label layoutX="408.0" layoutY="27.0" text="Sex" />
+      <Label layoutX="511.0" layoutY="27.0" text="Adress" />
+      <Label layoutX="609.0" layoutY="27.0" text="Phone" />
+      <Label fx:id="medicalNbrCL" layoutX="47.0" layoutY="59.0" prefHeight="17.0" prefWidth="80.0" text="med_nbr" />
+      <TextField fx:id="birthdateCL" layoutX="706.0" layoutY="55.0" prefHeight="25.0" prefWidth="87.0" />
+      <Label layoutX="707.0" layoutY="27.0" text="Birthdate" />
+      <Label layoutX="811.0" layoutY="27.0" text="Registratio date" />
+      <Label fx:id="registrationCL" layoutX="811.0" layoutY="59.0" text="Registration date" />
    </children>
 </AnchorPane>

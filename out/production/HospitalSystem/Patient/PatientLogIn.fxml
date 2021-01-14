@@ -12,7 +12,7 @@
       <Label layoutX="22.0" layoutY="14.0" text="DbConnection" />
       <Label fx:id="dbStatus" layoutX="123.0" layoutY="14.0" text="true" />
       <TextField fx:id="medicalNbrLogin" layoutX="220.0" layoutY="83.0" prefHeight="25.0" prefWidth="160.0" promptText="MEDICAL ID" />
-      <Button fx:id="LogIn" layoutX="220.0" layoutY="119.0" mnemonicParsing="false" onAction="#login" prefHeight="73.0" prefWidth="160.0" text="Log in" />
+      <Button fx:id="logIn" layoutX="220.0" layoutY="119.0" mnemonicParsing="false" onAction="#login" prefHeight="73.0" prefWidth="160.0" text="Log in" />
       <Separator layoutX="220.0" layoutY="199.0" prefHeight="1.0" prefWidth="160.0" />
    </children>
 </AnchorPane>
