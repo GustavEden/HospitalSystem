@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PatientRegistration/PatientData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PatientView/MedicalNbrModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_32_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_32_3_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/HospitalDB.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/PatientLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/PatientLogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/DB/dbConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/DB/dbConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/META-INF/HospitalSystem.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/Authority.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/Authority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/PatientLogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/PatientLogIn.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/PatientLogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/PatientLogInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientRegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientRegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HospitalDB.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Patient/PatientLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patient/PatientLogIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Patient/PatientLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patient/PatientLogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PatientView/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,6 +85,10 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -99,9 +98,10 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sqlite-jdbc-3.32.3.2.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Java/JavaFX/javafx-sdk-11.0.2/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -113,19 +113,13 @@
       <recent name="C:\Users\Shelbot\Downloads\java-backend-master\HospitalSystem\src\PatientView" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Application.Authority">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -138,16 +132,10 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Authority" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Patient.Authority" />
       <module name="HospitalSystem" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Shelbot\Desktop\javafx\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;E:\Java\JavaFX\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="PatientRegistration.*" />
@@ -176,6 +164,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -221,6 +220,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -232,24 +232,27 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1610660640450" duration="583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
