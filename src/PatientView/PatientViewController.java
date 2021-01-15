@@ -78,6 +78,7 @@ public class PatientViewController implements Initializable {
             this.adressCL.setText(rs1.getString(6));
             this.birthdateCL.setText(rs1.getString(7));
             this.registrationCL.setText(rs1.getString(8));
+            conn.close();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -91,9 +92,11 @@ public class PatientViewController implements Initializable {
             Connection conn = dbConnection.getConnection();
             this.doctorData = FXCollections.observableArrayList();
             ResultSet result = conn.createStatement().executeQuery(doctorsListQuery);
+
             while(result.next()){
                 this.doctorData.add(new DoctorData(result.getString(1),result.getString(2),result.getString(3)));
             }
+            conn.close();
         }catch (Exception e ){
             e.printStackTrace();
         }
@@ -103,6 +106,7 @@ public class PatientViewController implements Initializable {
 
         this.doctorTable.setItems(null);
         this.doctorTable.setItems(this.doctorData);
+
     }
 
     public void searchDoctors(){
@@ -115,9 +119,11 @@ public class PatientViewController implements Initializable {
             Connection conn = dbConnection.getConnection();
             this.doctorData = FXCollections.observableArrayList();
             ResultSet result = conn.createStatement().executeQuery(doctorsListQuery);
+
             while(result.next()){
                 this.doctorData.add(new DoctorData(result.getString(1),result.getString(2),result.getString(3)));
             }
+            conn.close();
         }catch (Exception e ){
             e.printStackTrace();
         }
@@ -152,6 +158,7 @@ public class PatientViewController implements Initializable {
 
             stmt.execute();
             stmt.close();
+            conn.close();
         }catch (Exception e){
             e.printStackTrace();
         }
