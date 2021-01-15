@@ -18,9 +18,11 @@ public class PatientLogIn {
         }
 
     }
+
     public boolean isDatabaseConnected(){
         return this.connection != null;
     }
+
     public boolean isLogin(String medicalNbr) throws Exception {
         PreparedStatement pr = null;
         ResultSet rs = null;

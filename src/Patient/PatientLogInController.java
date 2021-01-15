@@ -49,39 +49,34 @@ public class PatientLogInController implements Initializable {
 
     @FXML
     public void login(ActionEvent event) throws Exception{
+        try{
+            if(this.patientLogIn.isLogin(this.medicalNbrLogin.getText())){
+                Stage stage = (Stage)this.logIn.getScene().getWindow();
+                stage.close();
+                try{
+                    Stage patientview = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    Pane root = (Pane)loader.load(getClass().getResource("/PatientView/PatientView.FXML").openStream());
+                    PatientViewController patientViewController = (PatientViewController)loader.getController();
+                    patientViewController.medNbr(this.medicalNbrLogin.getText());
 
-    try{
-        if(this.patientLogIn.isLogin(this.medicalNbrLogin.getText())){
-            Stage stage = (Stage)this.logIn.getScene().getWindow();
-            stage.close();
-            try{
-                Stage patientview = new Stage();
-                FXMLLoader loader = new FXMLLoader();
-                Pane root = (Pane)loader.load(getClass().getResource("/PatientView/PatientView.FXML").openStream());
-                PatientViewController patientViewController = (PatientViewController)loader.getController();
-                patientViewController.medNbr(this.medicalNbrLogin.getText());
-
-                Scene scene = new Scene(root);
-                patientview.setScene(scene);
-                patientview.setTitle("Patient View");
-                patientview.show();
-            }catch (Exception e){
-                e.printStackTrace();
+                    Scene scene = new Scene(root);
+                    patientview.setScene(scene);
+                    patientview.setTitle("Patient View");
+                    patientview.show();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Medical number doesn't exist");
+                alert.showAndWait();
             }
-
-        }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("Medical number doesn't exist");
-
-            alert.showAndWait();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
-
-    }catch (Exception e){
-        e.printStackTrace();
-    }
     }
     @FXML
     public void registration(ActionEvent rege) throws Exception{
