@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PatientView/SchemaData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HospitalDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PatientView/DoctorData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/DoctorData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PatientView/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatientView/SchemaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/SchemaData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,17 +162,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -232,6 +218,8 @@
       <workItem from="1610660640450" duration="1902000" />
       <workItem from="1610706231096" duration="1948000" />
       <workItem from="1610709051188" duration="13587000" />
+      <workItem from="1610745700070" duration="17000" />
+      <workItem from="1610792418167" duration="4265000" />
     </task>
     <servers />
   </component>

@@ -20,9 +20,12 @@
       </TableView>
       <TextField fx:id="doctorSearchTF" layoutX="27.0" layoutY="246.0" prefHeight="25.0" prefWidth="200.0" promptText="Specialization" />
       <Button layoutX="231.0" layoutY="246.0" mnemonicParsing="false" onAction="#searchDoctors" prefHeight="25.0" prefWidth="71.0" text="Search" />
-      <TableView layoutX="334.0" layoutY="383.0" prefHeight="358.0" prefWidth="650.0">
+      <TableView fx:id="schemaTable" layoutX="334.0" layoutY="383.0" prefHeight="358.0" prefWidth="650.0">
         <columns>
-          <TableColumn prefWidth="132.0" text="C1" />
+          <TableColumn fx:id="DateCl" prefWidth="197.0" text="Date" />
+            <TableColumn fx:id="Emp_idCl" prefWidth="90.0" text="Emp_id" />
+            <TableColumn fx:id="Schedule_idCl" prefWidth="141.0" text="Schedule_id" />
+            <TableColumn fx:id="AvailabilityCl" prefWidth="221.0" text="Availability" />
         </columns>
       </TableView>
       <Button layoutX="921.0" layoutY="761.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Book" />

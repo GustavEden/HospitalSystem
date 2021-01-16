@@ -1,21 +1,20 @@
 package PatientView;
 
 import DB.dbConnection;
-import PatientRegistration.PatientData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
+import javafx.event.ActionEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.scene.control.cell.PropertyValueFactory;
-import jdk.dynalink.linker.TypeBasedGuardingDynamicLinker;
 
 public class PatientViewController implements Initializable {
 
@@ -37,13 +36,15 @@ public class PatientViewController implements Initializable {
     private TextField registrationCL;
 
 
-    @FXML
-    private Button loadDataBtn;
+                                                //@FXML
+                                                //private Button loadDataBtn;
 
+
+    //Database connection
     private dbConnection db;
+                                                //private ObservableList <PatientData> data;
 
-    private ObservableList <PatientData> data;
-
+    // DoctorTable variables
     private ObservableList <DoctorData> doctorData;
     @FXML
     private TableView<DoctorData> doctorTable;
@@ -56,10 +57,25 @@ public class PatientViewController implements Initializable {
     @FXML
     private TextField doctorSearchTF;
 
+    // SchemaTable variables
+    private ObservableList <SchemaData> schemaData;
+    @FXML
+    private TableView<SchemaData> schemaTable;
+    @FXML
+    private TableColumn <DoctorData, String> DateCl;
+    @FXML
+    private TableColumn <DoctorData, String> Emp_idCl;
+    @FXML
+    private TableColumn <DoctorData, String> Schedule_idCl;
+    @FXML
+    private TableColumn <DoctorData, String> AvailabilityCl;
+
+    //Querys
     private String patientQuery;
     private String doctorsListQuery;
     private String schemaQuery;
 
+    //Current ptients medical number
     private String medical_number;
 
     public void medNbr(String nbr){
@@ -67,7 +83,7 @@ public class PatientViewController implements Initializable {
         patientQuery = "SELECT * FROM PATIENT WHERE Med_nbr =" + nbr;
         try{
             Connection conn = dbConnection.getConnection();
-            this.data= FXCollections.observableArrayList();
+            //this.data= FXCollections.observableArrayList();
             ResultSet rs1 = conn.createStatement().executeQuery(patientQuery);
 
             this.phoneCL.setText(rs1.getString(1));
@@ -107,6 +123,7 @@ public class PatientViewController implements Initializable {
         this.doctorTable.setItems(null);
         this.doctorTable.setItems(this.doctorData);
 
+        showSelectedDoctorsScheme();
     }
 
     public void searchDoctors(){
@@ -162,5 +179,38 @@ public class PatientViewController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+
+    private void showSelectedDoctorsScheme(){
+        doctorTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                DoctorData dd = doctorTable.getItems().get(doctorTable.getSelectionModel().getSelectedIndex());
+                System.out.println(dd.getEmp_id());
+
+                schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id();
+                try{
+                    Connection conn = dbConnection.getConnection();
+                    schemaData = FXCollections.observableArrayList();
+                    ResultSet result = conn.createStatement().executeQuery(schemaQuery);
+
+                    while(result.next()){
+                        schemaData.add(new SchemaData(result.getString(1),result.getString(2),result.getString(3),result.getString(4)));
+                    }
+                    conn.close();
+                }catch (Exception e ){
+                    e.printStackTrace();
+                }
+                DateCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("date"));
+                Emp_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("emp_id"));
+                Schedule_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("schedule_id"));
+                AvailabilityCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("availability"));
+
+
+                schemaTable.setItems(null);
+                schemaTable.setItems(schemaData);
+            }
+        });
     }
 }
