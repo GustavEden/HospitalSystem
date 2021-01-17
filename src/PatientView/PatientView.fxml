@@ -6,10 +6,17 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientView.PatientViewController">
    <children>
+      <ImageView fitHeight="808.0" fitWidth="1000.0" layoutY="-3.0">
+         <image>
+            <Image url="/images/doctor.png" />
+         </image>
+      </ImageView>
       <Separator layoutX="-5.0" layoutY="184.0" prefHeight="25.0" prefWidth="1000.0" />
       <TableView fx:id="doctorTable" layoutX="25.0" layoutY="274.0" prefHeight="468.0" prefWidth="276.0">
         <columns>
@@ -28,7 +35,7 @@
             <TableColumn fx:id="AvailabilityCl" prefWidth="221.0" text="Availability" />
         </columns>
       </TableView>
-      <Button layoutX="921.0" layoutY="761.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Book" />
+      <Button layoutX="909.0" layoutY="759.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Book" />
       <Label layoutX="848.0" layoutY="201.0" prefHeight="17.0" prefWidth="109.0" text="Booking available:" />
       <Label layoutX="962.0" layoutY="201.0" text="True" />
       <Button fx:id="updateDataBtn" layoutX="732.0" layoutY="142.0" mnemonicParsing="false" onAction="#changeInfo" prefHeight="25.0" prefWidth="200.0" text="Update data" />

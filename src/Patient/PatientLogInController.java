@@ -78,6 +78,8 @@ public class PatientLogInController implements Initializable {
     }
     @FXML
     public void registration(ActionEvent rege) throws Exception{
+        Stage stage = (Stage)this.logIn.getScene().getWindow();
+        stage.close();
         try {
             Stage patientRegistration = new Stage();
             FXMLLoader loader = new FXMLLoader();

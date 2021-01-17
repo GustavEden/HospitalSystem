@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class PatientViewController implements Initializable {
 
+    //TextFields
     @FXML
     private TextField  firstNameCL;
     @FXML
@@ -35,14 +36,9 @@ public class PatientViewController implements Initializable {
     @FXML
     private TextField registrationCL;
 
-
-                                                //@FXML
-                                                //private Button loadDataBtn;
-
-
     //Database connection
     private dbConnection db;
-                                                //private ObservableList <PatientData> data;
+
 
     // DoctorTable variables
     private ObservableList <DoctorData> doctorData;

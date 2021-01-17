@@ -10,14 +10,14 @@
 
 <AnchorPane prefHeight="388.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientRegistration.PatientRegistrationController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
+      <ImageView fitHeight="388.0" fitWidth="600.0">
          <image>
-            <Image url="@../images/doctor.png"/>
+            <Image url="/images/doctor.png" />
          </image>
       </ImageView>
-      <VBox layoutX="40.0" layoutY="10.0" prefHeight="339.0" prefWidth="204.0">
+      <VBox layoutX="40.0" layoutY="25.0" prefHeight="339.0" prefWidth="204.0">
          <children>
-            <TextField fx:id="medNbrTF" promptText="Medical number">
+            <TextField fx:id="medicalNbrTF" promptText="Medical number">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -49,7 +49,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="adressTF" promptText="Adress">
+            <TextField fx:id="addressTF" promptText="Adress">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -73,7 +73,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="dateTF" promptText="Date">
+            <TextField fx:id="registrationTF" promptText="Date">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -83,7 +83,7 @@
             </TextField>
          </children>
       </VBox>
-      <Button fx:id="registerBtn" layoutX="40.0" layoutY="349.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="204.0" text="Register">
+      <Button fx:id="registerBtn" layoutX="368.0" layoutY="320.0" mnemonicParsing="false" onAction="#createPatient" prefHeight="32.0" prefWidth="204.0" text="Register">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
