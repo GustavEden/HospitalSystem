@@ -35,7 +35,7 @@ public class PatientLogInController implements Initializable {
     @FXML
     private Button newPatient;
 
-   // @Override
+   //@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     if(this.patientLogIn.isDatabaseConnected()){
         this.dbStatus.setText("Connected");
@@ -44,8 +44,6 @@ public class PatientLogInController implements Initializable {
         this.dbStatus.setText("Not Connected");
     }
     }
-
-
 
     @FXML
     public void login(ActionEvent event) throws Exception{
