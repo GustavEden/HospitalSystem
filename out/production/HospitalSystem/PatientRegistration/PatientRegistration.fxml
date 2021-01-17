@@ -10,7 +10,11 @@
 
 <AnchorPane prefHeight="388.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientRegistration.PatientRegistrationController">
    <children>
-      
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../images/doctor.png"/>
+         </image>
+      </ImageView>
       <VBox layoutX="40.0" layoutY="10.0" prefHeight="339.0" prefWidth="204.0">
          <children>
             <TextField fx:id="medNbrTF" promptText="Medical number">

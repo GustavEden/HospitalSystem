@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PatientRegistration/doctor.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientRegistration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientRegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientRegistration/PatientRegistrationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Patient/PatientLogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patient/PatientLogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PatientRegistration/PatientRegistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientRegistration/PatientRegistration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PatientRegistration/PatientRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientRegistration/PatientRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatientRegistration/doctor.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/doctor.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +96,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Java/SceneBuilder/SceneBuilder/SceneBuilder.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EasyTurnament" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -108,6 +105,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Github\HospitalSystem\HospitalSystem\src\images" />
       <recent name="E:\Github\HospitalSystem\HospitalSystem\src\PatientRegistration" />
       <recent name="E:\Github\HospitalSystem\HospitalSystem\src" />
       <recent name="C:\Users\Shelbot\Downloads\java-backend-master\HospitalSystem\src\PatientRegistration" />
@@ -169,13 +167,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -238,7 +238,8 @@
       <workItem from="1610709051188" duration="13587000" />
       <workItem from="1610745700070" duration="17000" />
       <workItem from="1610792418167" duration="4265000" />
-      <workItem from="1610877200707" duration="1716000" />
+      <workItem from="1610877200707" duration="1953000" />
+      <workItem from="1610897482198" duration="384000" />
     </task>
     <servers />
   </component>

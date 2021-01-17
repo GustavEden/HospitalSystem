@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="doctor.jpg"/>
+            <Image url="@../images/doctor.png"/>
          </image>
       </ImageView>
       <VBox layoutX="40.0" layoutY="10.0" prefHeight="339.0" prefWidth="204.0">
