@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AdminView/AdminView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DoctorView/DoctorView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DoctorView/DoctorViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/start/start.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/start/startController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/Patient/Authority.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Patient/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/start/Authority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Patient/PatientLogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patient/PatientLogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/start/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/start/start.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +92,8 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
@@ -243,6 +239,8 @@
       <workItem from="1610792418167" duration="4265000" />
       <workItem from="1610877200707" duration="1953000" />
       <workItem from="1610897482198" duration="4961000" />
+      <workItem from="1610986323958" duration="19000" />
+      <workItem from="1610994256740" duration="473000" />
     </task>
     <servers />
   </component>

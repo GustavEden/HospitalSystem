@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="start.startController">
    <children>
-      <HBox layoutX="175.0" layoutY="157.0" prefHeight="51.0" prefWidth="235.0">
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="/images/doctor.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Button fx:id="patientBtn" mnemonicParsing="false" onAction="#startPatient" text="Patient" />
-            <Button fx:id="doctorBtn" mnemonicParsing="false" onAction="#startDoctor" text="Doctor" />
-            <Button fx:id="adminBtn" mnemonicParsing="false" onAction="#startAdmin" text="Admin" />
+            <Button fx:id="patientBtn" mnemonicParsing="false" onAction="#startPatient" prefHeight="273.0" prefWidth="131.0" text="Patient">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Button>
+            <Button fx:id="doctorBtn" mnemonicParsing="false" onAction="#startDoctor" prefHeight="273.0" prefWidth="131.0" text="Doctor">
+               <HBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </HBox.margin></Button>
+            <Button fx:id="adminBtn" mnemonicParsing="false" onAction="#startAdmin" prefHeight="273.0" prefWidth="131.0" text="Admin" />
          </children>
       </HBox>
    </children>
