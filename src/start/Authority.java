@@ -1,4 +1,4 @@
-package Patient;
+package start;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class Authority extends Application {
 
     public void start( Stage stage) throws Exception{
-        Parent root= (Parent) FXMLLoader.load(getClass().getResource("PatientLogIn.fxml"));
+        Parent root= (Parent) FXMLLoader.load(getClass().getResource("start.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Hospital system");
