@@ -52,4 +52,34 @@ public class PatientLogIn {
             rs.close();
         }
     }
+
+    public boolean checkEmpId(String empNbr) throws Exception {
+        PreparedStatement pr = null;
+        ResultSet rs = null;
+        String sql = "SELECT Emp_id FROM Doctor WHERE Emp_id = ? ";
+
+        try {
+            pr = this.connection.prepareStatement(sql);
+            pr.setString(1, empNbr);
+
+            rs = pr.executeQuery();
+
+            boolean bol1;
+
+            if (rs.next()) {
+                return true;
+            }
+            return false;
+
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        finally {
+            pr.close();
+            rs.close();
+        }
+    }
 }

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalDB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminView/AdminView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView/AdminView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +169,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -229,7 +243,7 @@
       <workItem from="1610986323958" duration="19000" />
       <workItem from="1610994256740" duration="473000" />
       <workItem from="1610999198204" duration="617000" />
-      <workItem from="1611044791312" duration="599000" />
+      <workItem from="1611044791312" duration="1536000" />
     </task>
     <servers />
   </component>
