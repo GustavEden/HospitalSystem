@@ -14,8 +14,9 @@ public class PatientData {
     private final StringProperty phone;
     private final StringProperty birthdate;
     private final StringProperty registrationDate;
+    private final StringProperty totalCost;
 
-    public PatientData(String medicalNbr, String firstName, String lastName, String sex, String adress, String phone, String birthdate, String registrationDate){
+    public PatientData(String medicalNbr, String firstName, String lastName, String sex, String adress, String phone, String birthdate, String registrationDate,String totalCost){
         this.medicalNbr= new SimpleStringProperty(medicalNbr);
         this.firstName= new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
@@ -24,6 +25,7 @@ public class PatientData {
         this.phone= new SimpleStringProperty(phone);
         this.birthdate= new SimpleStringProperty(birthdate);
         this.registrationDate= new SimpleStringProperty(registrationDate);
+        this.totalCost= new SimpleStringProperty(totalCost);
 
     }
     public String getMedicalNbr() {
@@ -122,4 +124,15 @@ public class PatientData {
         this.registrationDate.set(registrationDate);
     }
 
+    public String getTotalCost() {
+        return totalCost.get();
+    }
+
+    public StringProperty totalCostProperty() {
+        return totalCost;
+    }
+
+    public void setTotalCost(String totalCost) {
+        this.totalCost.set(totalCost);
+    }
 }

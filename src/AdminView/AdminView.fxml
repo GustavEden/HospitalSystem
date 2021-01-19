@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminView.AdminViewController">
+<AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminView.AdminViewController">
    <children>
-      <TableView layoutX="14.0" layoutY="14.0" prefHeight="187.0" prefWidth="253.0">
+      <TableView fx:id="doctorTable" layoutX="14.0" layoutY="14.0" prefHeight="187.0" prefWidth="253.0">
         <columns>
-          <TableColumn prefWidth="101.0" text="Doctor" />
-          <TableColumn prefWidth="151.0" text="Emp_id" />
+          <TableColumn fx:id="doctorCL" prefWidth="101.0" text="Doctor" />
+          <TableColumn fx:id="emp_idCL" prefWidth="151.0" text="Emp_id" />
         </columns>
       </TableView>
       <Separator layoutX="12.0" layoutY="213.0" prefHeight="12.0" prefWidth="974.0" />
@@ -26,47 +26,47 @@
                   <Insets bottom="16.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Full name">
+            <TextField fx:id="fullNameTF" promptText="Full name">
                <VBox.margin>
                   <Insets bottom="16.0" />
                </VBox.margin>
             </TextField>
-            <TextField prefHeight="25.0" prefWidth="440.0" promptText="Spec">
+            <TextField fx:id="specTF" prefHeight="25.0" prefWidth="440.0" promptText="Spec">
                <VBox.margin>
                   <Insets bottom="16.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Phone">
+            <TextField fx:id="phoneTF" promptText="Phone">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin>
             </TextField>
          </children>
       </VBox>
-      <TableView layoutX="13.0" layoutY="241.0" prefHeight="302.0" prefWidth="974.0">
+      <TableView fx:id="patientTable" layoutX="13.0" layoutY="241.0" prefHeight="302.0" prefWidth="974.0">
         <columns>
-          <TableColumn prefWidth="64.0" text="Med_id" />
-          <TableColumn prefWidth="86.0" text="First name" />
-            <TableColumn prefWidth="75.0" text="Last name" />
-            <TableColumn prefWidth="37.0" text="Sex" />
-            <TableColumn prefWidth="113.0" text="Address" />
-            <TableColumn prefWidth="75.0" text="Phone" />
-            <TableColumn prefWidth="75.0" text="Birthday" />
-            <TableColumn prefWidth="108.0" text="Registration" />
-            <TableColumn prefWidth="108.0" text="Total debt" />
+          <TableColumn fx:id="medIDCL" prefWidth="64.0" text="Med_id" />
+          <TableColumn fx:id="fNameCL" prefWidth="86.0" text="First name" />
+            <TableColumn fx:id="lNameCL" prefWidth="75.0" text="Last name" />
+            <TableColumn fx:id="sexCL" prefWidth="37.0" text="Sex" />
+            <TableColumn fx:id="addressCL" prefWidth="113.0" text="Address" />
+            <TableColumn fx:id="phoneCL" prefWidth="75.0" text="Phone" />
+            <TableColumn fx:id="birthdayCL" prefWidth="75.0" text="Birthday" />
+            <TableColumn fx:id="registrationCL" prefWidth="108.0" text="Registration" />
+            <TableColumn fx:id="totalDebtCL" prefWidth="108.0" text="Total debt" />
         </columns>
       </TableView>
       <Separator layoutX="755.0" layoutY="8.0" orientation="VERTICAL" prefHeight="200.0" />
-      <Button layoutX="659.0" layoutY="176.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Add" />
-      <TableView layoutX="13.0" layoutY="563.0" prefHeight="245.0" prefWidth="601.0">
+      <Button layoutX="659.0" layoutY="176.0" mnemonicParsing="false" onAction="#createDoctor" prefHeight="25.0" prefWidth="79.0" text="Add" />
+      <TableView fx:id="journalTable" layoutX="13.0" layoutY="563.0" prefHeight="245.0" prefWidth="601.0">
         <columns>
-          <TableColumn prefWidth="115.0" text="Diagnos" />
-          <TableColumn prefWidth="79.0" text="Describtion" />
-            <TableColumn prefWidth="78.0" text="Medicine" />
-            <TableColumn prefWidth="69.0" text="Journal_id" />
-            <TableColumn prefWidth="79.0" text="Med_nbr" />
-            <TableColumn minWidth="0.0" prefWidth="50.0" text="Emp_id" />
-            <TableColumn prefWidth="89.0" text="Journal_date" />
+          <TableColumn fx:id="diagnosCL" prefWidth="115.0" text="Diagnos" />
+          <TableColumn fx:id="descriptionCL" prefWidth="79.0" text="Describtion" />
+            <TableColumn fx:id="medicineCL" prefWidth="78.0" text="Medicine" />
+            <TableColumn fx:id="journalIdCL" prefWidth="69.0" text="Journal_id" />
+            <TableColumn fx:id="medNbrCL" prefWidth="79.0" text="Med_nbr" />
+            <TableColumn fx:id="empIdCL" minWidth="0.0" prefWidth="50.0" text="Emp_id" />
+            <TableColumn fx:id="journalDateCL" prefWidth="89.0" text="Journal_date" />
         </columns>
       </TableView>
       <TableView layoutX="630.0" layoutY="563.0" prefHeight="245.0" prefWidth="359.0">
@@ -76,7 +76,7 @@
             <TableColumn minWidth="3.0" prefWidth="152.0" text="Schedule_id" />
         </columns>
       </TableView>
-      <Button layoutX="283.0" layoutY="176.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Delete" />
+      <Button fx:id="deleteBtn" layoutX="283.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="25.0" prefWidth="79.0" text="Delete" />
       <Label layoutX="14.0" layoutY="225.0" text="Patients" />
       <Label layoutX="12.0" layoutY="543.0" text="Journal" />
       <Label layoutX="630.0" layoutY="543.0" text="Booked Apointments" />
