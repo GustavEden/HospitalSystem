@@ -100,6 +100,18 @@ public class AdminViewController implements Initializable {
     @FXML
     private TableView patientTable;
 
+    //appointments
+    @FXML
+    private TableView <SchemaData> appointmentTable;
+    @FXML
+    private TableColumn <SchemaData,String> dateCL;
+    @FXML
+    private TableColumn <SchemaData,String> empId_CL;
+    @FXML
+    private TableColumn <SchemaData,String> scheduleIdCL;
+
+    private ObservableList <SchemaData> schemaData;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.db = new dbConnection();
@@ -107,6 +119,7 @@ public class AdminViewController implements Initializable {
         selectDoctor();
         loadPatient();
         showSelectedPatientJournal();
+        loadAppointments();
     }
 
     @FXML
@@ -170,8 +183,6 @@ public class AdminViewController implements Initializable {
             PreparedStatement stmt = conn.prepareStatement(sqlDelete);
             stmt.setString(1, this.currentDrID);
 
-
-
             stmt.execute();
             stmt.close();
             conn.close();
@@ -212,8 +223,8 @@ public class AdminViewController implements Initializable {
             this.patientData= FXCollections.observableArrayList();
             ResultSet rs1 = conn.createStatement().executeQuery(patientQuery);
             while(rs1.next()){
-                this.patientData.add(new PatientData(rs1.getString(1),rs1.getString(2),rs1.getString(3),rs1.getString(4),rs1.getString(5),
-                        rs1.getString(6),rs1.getString(7),rs1.getString(8),rs1.getString(9)));
+                this.patientData.add(new PatientData(rs1.getString(2),rs1.getString(3),rs1.getString(4),rs1.getString(5),
+                        rs1.getString(6),rs1.getString(1),rs1.getString(7),rs1.getString(8),rs1.getString(9)));
             }
             conn.close();
 
@@ -237,13 +248,13 @@ public class AdminViewController implements Initializable {
 
     }
     private void showSelectedPatientJournal(){
-        journalTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        patientTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                JournalData jd = journalTable.getItems().get(journalTable.getSelectionModel().getSelectedIndex());
+                PatientData jd = (PatientData) patientTable.getItems().get(patientTable.getSelectionModel().getSelectedIndex());
 
 
-               String journalQuery = "SELECT * FROM Journal Where Med_nbr = " + jd.getMedNbr();
+               String journalQuery = "SELECT * FROM Journal Where Med_nbr = " + jd.getMedicalNbr();
                 try{
                     Connection conn = dbConnection.getConnection();
                     journalData = FXCollections.observableArrayList();
@@ -271,6 +282,31 @@ public class AdminViewController implements Initializable {
             }
         });
     }
+    public void loadAppointments(){
+       String schemaQuery = "SELECT * FROM Schema Where Availability= \" True \"";
+        try{
+            Connection conn = dbConnection.getConnection();
+            schemaData = FXCollections.observableArrayList();
+            ResultSet result = conn.createStatement().executeQuery(schemaQuery);
+
+            while(result.next()){
+                schemaData.add(new SchemaData(result.getString(1),result.getString(2),result.getString(3),result.getString(4)));
+            }
+            conn.close();
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+        dateCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("date"));
+        empId_CL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("emp_id"));
+        scheduleIdCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("schedule_id"));
+
+
+        appointmentTable.setItems(null);
+        appointmentTable.setItems(schemaData);
+
+
+    }
+
     }
     
     

@@ -69,11 +69,11 @@
             <TableColumn fx:id="journalDateCL" prefWidth="89.0" text="Journal_date" />
         </columns>
       </TableView>
-      <TableView layoutX="630.0" layoutY="563.0" prefHeight="245.0" prefWidth="359.0">
+      <TableView fx:id="appointmentTable" layoutX="630.0" layoutY="563.0" prefHeight="245.0" prefWidth="359.0">
         <columns>
-          <TableColumn prefWidth="179.0" text="Date" />
-          <TableColumn prefWidth="72.0" text="Emp_id" />
-            <TableColumn minWidth="3.0" prefWidth="152.0" text="Schedule_id" />
+          <TableColumn fx:id="dateCL" prefWidth="179.0" text="Date" />
+          <TableColumn fx:id="empId_CL" prefWidth="72.0" text="Emp_id" />
+            <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="152.0" text="Schedule_id" />
         </columns>
       </TableView>
       <Button fx:id="deleteBtn" layoutX="283.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="25.0" prefWidth="79.0" text="Delete" />
