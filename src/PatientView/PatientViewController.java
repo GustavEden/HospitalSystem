@@ -14,6 +14,14 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.WeekFields;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class PatientViewController implements Initializable {
@@ -65,14 +73,24 @@ public class PatientViewController implements Initializable {
     private TableColumn <DoctorData, String> Schedule_idCl;
     @FXML
     private TableColumn <DoctorData, String> AvailabilityCl;
+    @FXML
+    private TableColumn <DoctorData, String> TimeCl;
 
     //Querys
     private String patientQuery;
     private String doctorsListQuery;
     private String schemaQuery;
 
-    //Current ptients medical number
+    //Current patient medical number
     private String medical_number;
+
+    //Current Selected appointments
+    private String cSA;
+
+    //Current Selected appointments
+    private String currentEmp_id;
+
+
 
     public void medNbr(String nbr){
         medical_number = nbr;
@@ -152,7 +170,7 @@ public class PatientViewController implements Initializable {
     @Override
     public void initialize (URL url, ResourceBundle rb){
         this.db = new dbConnection();
-
+        getSelectedTime();
     }
 
     @FXML
@@ -183,7 +201,7 @@ public class PatientViewController implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 DoctorData dd = doctorTable.getItems().get(doctorTable.getSelectionModel().getSelectedIndex());
-                System.out.println(dd.getEmp_id());
+                currentEmp_id = dd.getEmp_id();
 
                 schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id();
                 try{
@@ -192,7 +210,10 @@ public class PatientViewController implements Initializable {
                     ResultSet result = conn.createStatement().executeQuery(schemaQuery);
 
                     while(result.next()){
-                        schemaData.add(new SchemaData(result.getString(1),result.getString(2),result.getString(3),result.getString(4)));
+                        if(getCurrentWeek(result.getString(1))){
+                            schemaData.add(new SchemaData(result.getString(1),result.getString(2),
+                                    result.getString(3),result.getString(4),result.getString(5)));
+                        }
                     }
                     conn.close();
                 }catch (Exception e ){
@@ -202,11 +223,101 @@ public class PatientViewController implements Initializable {
                 Emp_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("emp_id"));
                 Schedule_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("schedule_id"));
                 AvailabilityCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("availability"));
-
+                TimeCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("time"));
 
                 schemaTable.setItems(null);
                 schemaTable.setItems(schemaData);
             }
         });
+    }
+
+    private void updateDoctorsScheme(){
+        schemaQuery = "SELECT * FROM Schema Where Emp_id = " + currentEmp_id;
+        try{
+            Connection conn = dbConnection.getConnection();
+            schemaData = FXCollections.observableArrayList();
+            ResultSet result = conn.createStatement().executeQuery(schemaQuery);
+
+            while(result.next()){
+
+                schemaData.add(new SchemaData(result.getString(1),result.getString(2),
+                        result.getString(3),result.getString(4),result.getString(5)));
+            }
+            conn.close();
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+        DateCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("date"));
+        Emp_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("emp_id"));
+        Schedule_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("schedule_id"));
+        AvailabilityCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("availability"));
+        TimeCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("time"));
+
+        schemaTable.setItems(null);
+        schemaTable.setItems(schemaData);
+    }
+
+    private void getSelectedTime(){
+        schemaTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                SchemaData dd = schemaTable.getItems().get(schemaTable.getSelectionModel().getSelectedIndex());
+                cSA = dd.getSchedule_id();
+            }
+        });
+
+    }
+
+    @FXML
+    private void book(ActionEvent event){
+        if(getDayNumberNew()){
+            String sqlDelete = "UPDATE Schema SET Availability = \" False \" WHERE Schedule_id=?";
+            try {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sqlDelete);
+                stmt.setString(1, this.cSA);
+
+                stmt.execute();
+                stmt.close();
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            updateDoctorsScheme();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Det går bara att boka på fredagar");
+            alert.showAndWait();
+        }
+
+    }
+
+    private Boolean getCurrentWeek(String s) {
+
+        LocalDate date = LocalDate.now();
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        int goal = date.get(weekFields.weekOfWeekBasedYear()) + 1;
+
+        LocalDate d = LocalDate.parse(s);
+        int now = d.get(weekFields.weekOfWeekBasedYear());
+
+        if(goal == now){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+
+
+    public static Boolean getDayNumberNew() {
+        DayOfWeek day = java.time.LocalDate.now().getDayOfWeek();
+        if(day.equals("FRIDAY")){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

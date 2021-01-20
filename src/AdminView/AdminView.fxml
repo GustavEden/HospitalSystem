@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminView.AdminViewController">
+<AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminView.AdminViewController">
    <children>
-      <TableView fx:id="doctorTable" layoutX="14.0" layoutY="14.0" prefHeight="187.0" prefWidth="253.0">
+      <TableView fx:id="doctorTable" layoutX="330.0" layoutY="14.0" prefHeight="193.0" prefWidth="253.0">
         <columns>
           <TableColumn fx:id="doctorCL" prefWidth="101.0" text="Doctor" />
           <TableColumn fx:id="emp_idCL" prefWidth="151.0" text="Emp_id" />
         </columns>
       </TableView>
       <Separator layoutX="12.0" layoutY="213.0" prefHeight="12.0" prefWidth="974.0" />
-      <VBox layoutX="289.0" layoutY="14.0" prefHeight="169.0" prefWidth="449.0">
+      <VBox layoutX="16.0" layoutY="17.0" prefHeight="169.0" prefWidth="299.0">
          <children>
             <TextField fx:id="empIdTF" promptText="Emp_id">
                <VBox.margin>
@@ -56,9 +56,9 @@
             <TableColumn fx:id="totalDebtCL" prefWidth="108.0" text="Total debt" />
         </columns>
       </TableView>
-      <Separator layoutX="755.0" layoutY="8.0" orientation="VERTICAL" prefHeight="200.0" />
-      <Button layoutX="659.0" layoutY="176.0" mnemonicParsing="false" onAction="#createDoctor" prefHeight="25.0" prefWidth="79.0" text="Add" />
-      <TableView fx:id="journalTable" layoutX="13.0" layoutY="563.0" prefHeight="245.0" prefWidth="601.0">
+      <Separator layoutX="597.0" layoutY="14.0" orientation="VERTICAL" prefHeight="200.0" />
+      <Button layoutX="18.0" layoutY="176.0" mnemonicParsing="false" onAction="#createDoctor" prefHeight="25.0" prefWidth="79.0" text="Add" />
+      <TableView fx:id="journalTable" layoutX="13.0" layoutY="563.0" prefHeight="245.0" prefWidth="974.0">
         <columns>
           <TableColumn fx:id="diagnosCL" prefWidth="115.0" text="Diagnos" />
           <TableColumn fx:id="descriptionCL" prefWidth="79.0" text="Describtion" />
@@ -69,17 +69,17 @@
             <TableColumn fx:id="journalDateCL" prefWidth="89.0" text="Journal_date" />
         </columns>
       </TableView>
-      <TableView fx:id="appointmentTable" layoutX="630.0" layoutY="563.0" prefHeight="245.0" prefWidth="359.0">
+      <TableView fx:id="appointmentTable" layoutX="614.0" layoutY="17.0" prefHeight="193.0" prefWidth="359.0">
         <columns>
           <TableColumn fx:id="dateCL" prefWidth="179.0" text="Date" />
           <TableColumn fx:id="empId_CL" prefWidth="72.0" text="Emp_id" />
             <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="152.0" text="Schedule_id" />
         </columns>
       </TableView>
-      <Button fx:id="deleteBtn" layoutX="283.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="25.0" prefWidth="79.0" text="Delete" />
+      <Button fx:id="deleteBtn" layoutX="236.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="25.0" prefWidth="79.0" text="Delete" />
       <Label layoutX="14.0" layoutY="225.0" text="Patients" />
       <Label layoutX="12.0" layoutY="543.0" text="Journal" />
-      <Label layoutX="630.0" layoutY="543.0" text="Booked Apointments" />
+      <Label layoutX="614.0" text="Booked Apointments" />
       <Label layoutX="16.0" text="Doctors" />
    </children>
 </AnchorPane>

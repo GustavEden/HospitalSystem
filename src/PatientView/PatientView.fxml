@@ -29,13 +29,14 @@
       <Button layoutX="231.0" layoutY="246.0" mnemonicParsing="false" onAction="#searchDoctors" prefHeight="25.0" prefWidth="71.0" text="Search" />
       <TableView fx:id="schemaTable" layoutX="334.0" layoutY="383.0" prefHeight="358.0" prefWidth="650.0">
         <columns>
-          <TableColumn fx:id="DateCl" prefWidth="197.0" text="Date" />
-            <TableColumn fx:id="Emp_idCl" prefWidth="90.0" text="Emp_id" />
-            <TableColumn fx:id="Schedule_idCl" prefWidth="141.0" text="Schedule_id" />
-            <TableColumn fx:id="AvailabilityCl" prefWidth="221.0" text="Availability" />
+          <TableColumn fx:id="DateCl" prefWidth="147.0" text="Date" />
+            <TableColumn fx:id="TimeCl" prefWidth="107.0" text="Time" />
+            <TableColumn fx:id="Emp_idCl" prefWidth="71.0" text="Emp_id" />
+            <TableColumn fx:id="Schedule_idCl" prefWidth="83.0" text="Schedule_id" />
+            <TableColumn fx:id="AvailabilityCl" maxWidth="174.0" prefWidth="107.0" text="Availability" />
         </columns>
       </TableView>
-      <Button layoutX="909.0" layoutY="759.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Book" />
+      <Button layoutX="909.0" layoutY="759.0" mnemonicParsing="false" onAction="#book" prefHeight="25.0" prefWidth="65.0" text="Book" />
       <Label layoutX="848.0" layoutY="201.0" prefHeight="17.0" prefWidth="109.0" text="Booking available:" />
       <Label layoutX="962.0" layoutY="201.0" text="True" />
       <Button fx:id="updateDataBtn" layoutX="732.0" layoutY="142.0" mnemonicParsing="false" onAction="#changeInfo" prefHeight="25.0" prefWidth="200.0" text="Update data" />

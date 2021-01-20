@@ -9,6 +9,7 @@ import PatientView.SchemaData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -16,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 
 import java.net.URL;
@@ -87,8 +89,10 @@ public class DoctorViewController implements Initializable {
     @FXML
     private TableColumn<JournalData,String> journalDateCL;
 
+
     public void initialize(URL url, ResourceBundle rb){
         this.db = new dbConnection();
+        showSelectedPatientJournal();
     }
     @FXML
     private void checkEmpID(ActionEvent event){
@@ -104,11 +108,9 @@ public class DoctorViewController implements Initializable {
                 alert.setContentText("Emp_id already exist or is empty");
                 alert.showAndWait();
             }
-
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     private void loadPatient(){
@@ -138,12 +140,8 @@ public class DoctorViewController implements Initializable {
 
         this.patientTable.setItems(null);
         this.patientTable.setItems(this.patientData);
-
-
-
     }
     public void loadAppointments(String empID){
-
        String schemaQuery = "SELECT * FROM Schema Where Emp_id = " + empID;
         try{
             Connection conn = dbConnection.getConnection();
@@ -151,7 +149,8 @@ public class DoctorViewController implements Initializable {
             ResultSet result = conn.createStatement().executeQuery(schemaQuery);
 
             while(result.next()){
-                schemaData.add(new SchemaData(result.getString(1),result.getString(2),result.getString(3),result.getString(4)));
+                schemaData.add(new SchemaData(result.getString(1),result.getString(2),
+                        result.getString(3),result.getString(4),result.getString(5)));
             }
             conn.close();
         }catch (Exception e ){
@@ -162,12 +161,43 @@ public class DoctorViewController implements Initializable {
         scheduleIdCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("schedule_id"));
         availabilityCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("availability"));
 
-
         appointmentTable.setItems(null);
         appointmentTable.setItems(schemaData);
-
-
-
     }
 
+    private void showSelectedPatientJournal(){
+        patientTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                PatientData jd = (PatientData) patientTable.getItems().get(patientTable.getSelectionModel().getSelectedIndex());
+
+
+                String journalQuery = "SELECT * FROM Journal Where Med_nbr = " + jd.getMedicalNbr();
+                try{
+                    Connection conn = dbConnection.getConnection();
+                    journalData = FXCollections.observableArrayList();
+                    ResultSet result = conn.createStatement().executeQuery(journalQuery);
+
+                    while(result.next()){
+                        journalData.add(new JournalData(result.getString(1),result.getString(2),result.getString(3),result.getString(4),
+                                result.getString(5),result.getString(6),result.getString(7)));
+                    }
+                    conn.close();
+                }catch (Exception e ){
+                    e.printStackTrace();
+                }
+                diagnosCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("diagnos"));
+                descriptionCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("description"));
+                medicineCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("medicine"));
+                journalIdCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("journalId"));
+                medNbrCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("medNbr"));
+                empIdCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("empId"));
+                journalDateCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("journalDate"));
+
+
+                journalTable.setItems(null);
+                journalTable.setItems(journalData);
+            }
+        });
+    }
 }
