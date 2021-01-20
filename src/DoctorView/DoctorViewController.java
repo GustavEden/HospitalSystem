@@ -43,6 +43,8 @@ public class DoctorViewController implements Initializable {
     private TableColumn <SchemaData,String> scheduleIdCL;
     @FXML
     private TableColumn <SchemaData,String> availabilityCL;
+    @FXML
+    private TableColumn <SchemaData, String> timeCL;
 
     private ObservableList<SchemaData> schemaData;
     //PatientData
@@ -160,6 +162,7 @@ public class DoctorViewController implements Initializable {
         empId_CL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("emp_id"));
         scheduleIdCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("schedule_id"));
         availabilityCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("availability"));
+        timeCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("time"));
 
         appointmentTable.setItems(null);
         appointmentTable.setItems(schemaData);

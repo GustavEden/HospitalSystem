@@ -10,19 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DoctorView.DoctorViewController">
+<AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DoctorView.DoctorViewController">
     <children>
-        <Separator layoutY="116.0" prefHeight="12.0" prefWidth="974.0" />
-        <VBox layoutX="289.0" layoutY="14.0" prefHeight="33.0" prefWidth="451.0">
-            <children>
-                <TextField fx:id="empIdTF" promptText="Emp_id">
-                    <VBox.margin>
-                        <Insets bottom="16.0" />
-                    </VBox.margin>
-                </TextField>
-            </children>
-        </VBox>
-        <TableView fx:id="patientTable" layoutX="13.0" layoutY="157.0" prefHeight="302.0" prefWidth="974.0">
+        <Separator layoutY="90.0" prefHeight="12.0" prefWidth="1000.0" />
+        <VBox layoutX="289.0" layoutY="14.0" prefHeight="25.0" prefWidth="451.0" />
+        <TableView fx:id="patientTable" layoutX="13.0" layoutY="157.0" prefHeight="302.0" prefWidth="722.0">
             <columns>
                 <TableColumn fx:id="medIDCL" prefWidth="64.0" text="Med_id" />
                 <TableColumn fx:id="fNameCL" prefWidth="86.0" text="First name" />
@@ -31,14 +23,14 @@
                 <TableColumn fx:id="addressCL" prefWidth="113.0" text="Address" />
                 <TableColumn fx:id="phoneCL" prefWidth="75.0" text="Phone" />
                 <TableColumn fx:id="birthdayCL" prefWidth="75.0" text="Birthday" />
-                <TableColumn fx:id="registrationCL" prefWidth="108.0" text="Registration" />
-                <TableColumn fx:id="totalDebtCL" prefWidth="108.0" text="Total debt" />
+                <TableColumn fx:id="registrationCL" prefWidth="84.0" text="Registration" />
+                <TableColumn fx:id="totalDebtCL" prefWidth="132.0" text="Total debt" />
             </columns>
         </TableView>
-        <TableView fx:id="journalTable" layoutX="8.0" layoutY="512.0" prefHeight="245.0" prefWidth="562.0">
+        <TableView fx:id="journalTable" layoutX="15.0" layoutY="512.0" prefHeight="245.0" prefWidth="555.0">
             <columns>
                 <TableColumn fx:id="diagnosCL" prefWidth="115.0" text="Diagnos" />
-                <TableColumn fx:id="descriptionCL" prefWidth="79.0" text="Describtion" />
+                <TableColumn fx:id="descriptionCL" prefWidth="79.0" text="Description" />
                 <TableColumn fx:id="medicineCL" prefWidth="78.0" text="Medicine" />
                 <TableColumn fx:id="journalIdCL" prefWidth="69.0" text="Journal_id" />
                 <TableColumn fx:id="medNbrCL" prefWidth="79.0" text="Med_nbr" />
@@ -48,16 +40,60 @@
         </TableView>
         <TableView fx:id="appointmentTable" layoutX="580.0" layoutY="512.0" prefHeight="245.0" prefWidth="407.0">
             <columns>
-                <TableColumn fx:id="dateCL" prefWidth="179.0" text="Date" />
-                <TableColumn fx:id="empId_CL" prefWidth="72.0" text="Emp_id" />
-                <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="73.0" text="Schedule_id" />
-            <TableColumn fx:id="availabilityCL" prefWidth="75.0" text="Availability" />
+                <TableColumn fx:id="dateCL" prefWidth="82.0" text="Date" />
+            <TableColumn fx:id="timeCL" prefWidth="82.0" text="Time" />
+                <TableColumn fx:id="empId_CL" prefWidth="58.0" text="Emp_id" />
+                <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="75.0" text="Schedule_id" />
+            <TableColumn fx:id="availabilityCL" prefWidth="73.0" text="Availability" />
             </columns>
         </TableView>
         <Label layoutX="16.0" layoutY="128.0" text="Patients" />
         <Label layoutX="18.0" layoutY="481.0" text="Journal" />
-        <Label layoutX="621.0" layoutY="481.0" text="Apointments" />
-      <Button fx:id="showBtn" layoutX="474.0" layoutY="71.0" mnemonicParsing="false" onAction="#checkEmpID" text="Show" />
+        <Label layoutX="580.0" layoutY="481.0" text="Apointments" />
+      <Button fx:id="showBtn" layoutX="478.0" layoutY="65.0" mnemonicParsing="false" onAction="#checkEmpID" text="Show" />
       <Button fx:id="bookBtn" layoutX="762.0" layoutY="769.0" mnemonicParsing="false" text="Book" />
+      <Button layoutX="758.0" layoutY="434.0" mnemonicParsing="false" text="Add Jurnal" />
+      <VBox layoutX="758.0" layoutY="186.0" prefHeight="245.0" prefWidth="225.0">
+         <children>
+            <TextField promptText="Diagnos">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Description">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Medecine">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Jurnal id">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Med_nbr">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Emp id">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField promptText="Jurnal date">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <Label layoutX="768.0" layoutY="167.0" text="Add Jurnal" />
+      <Label layoutX="289.0" layoutY="6.0" text="Log in" />
+          <TextField fx:id="empIdTF" layoutX="289.0" layoutY="27.0" prefHeight="25.0" prefWidth="414.0" promptText="Emp_id" />
     </children>
 </AnchorPane>
