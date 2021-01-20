@@ -37,8 +37,6 @@
         </columns>
       </TableView>
       <Button layoutX="909.0" layoutY="759.0" mnemonicParsing="false" onAction="#book" prefHeight="25.0" prefWidth="65.0" text="Book" />
-      <Label layoutX="848.0" layoutY="201.0" prefHeight="17.0" prefWidth="109.0" text="Booking available:" />
-      <Label layoutX="962.0" layoutY="201.0" text="True" />
       <Button fx:id="updateDataBtn" layoutX="732.0" layoutY="142.0" mnemonicParsing="false" onAction="#changeInfo" prefHeight="25.0" prefWidth="200.0" text="Update data" />
       <TextField fx:id="firstNameCL" layoutX="174.0" layoutY="91.0" prefHeight="25.0" prefWidth="90.0" />
       <TextField fx:id="lastNameCL" layoutX="282.0" layoutY="91.0" prefHeight="25.0" prefWidth="90.0" />

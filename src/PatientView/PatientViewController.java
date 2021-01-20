@@ -89,6 +89,7 @@ public class PatientViewController implements Initializable {
 
     //Current Selected appointments
     private String currentEmp_id;
+    private String currentSpec;
 
 
 
@@ -97,7 +98,6 @@ public class PatientViewController implements Initializable {
         patientQuery = "SELECT * FROM PATIENT WHERE Med_nbr =" + nbr;
         try{
             Connection conn = dbConnection.getConnection();
-            //this.data= FXCollections.observableArrayList();
             ResultSet rs1 = conn.createStatement().executeQuery(patientQuery);
 
             this.phoneCL.setText(rs1.getString(1));
@@ -176,7 +176,6 @@ public class PatientViewController implements Initializable {
     @FXML
     private void changeInfo(ActionEvent event){
         String sqlChange = " UPDATE Patient SET Fname= ?, Lname=?, Sex=?, Adress=?,Phone =?, birthdate=? WHERE Med_nbr=" + medical_number;
-
         try{
             Connection conn = dbConnection.getConnection();
             PreparedStatement stmt= conn.prepareStatement(sqlChange);
@@ -202,7 +201,7 @@ public class PatientViewController implements Initializable {
             public void handle(MouseEvent mouseEvent) {
                 DoctorData dd = doctorTable.getItems().get(doctorTable.getSelectionModel().getSelectedIndex());
                 currentEmp_id = dd.getEmp_id();
-
+                currentSpec = dd.getSpecialization();
                 schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id();
                 try{
                     Connection conn = dbConnection.getConnection();
@@ -264,7 +263,6 @@ public class PatientViewController implements Initializable {
                 cSA = dd.getSchedule_id();
             }
         });
-
     }
 
     @FXML
@@ -290,8 +288,52 @@ public class PatientViewController implements Initializable {
             alert.setContentText("Det går bara att boka på fredagar");
             alert.showAndWait();
         }
-
     }
+
+    private int getPrice(){
+        String sqlDelete = "SELECT Price FROM Cost Where Specialization = \" " + currentSpec + " \"";
+        try{
+            Connection conn = dbConnection.getConnection();
+            ResultSet rs1 = conn.createStatement().executeQuery(sqlDelete);
+            conn.close();
+            return Integer.parseInt(rs1.getString(1));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+/*
+    private void getCurrentTotalCost(){
+        String sqlDelete = "SELECT Total_cost FROM Cost Where Specialization = \" " + currentSpec + " \"";
+        try{
+            Connection conn = dbConnection.getConnection();
+            ResultSet rs1 = conn.createStatement().executeQuery(sqlDelete);
+            conn.close();
+            return Integer.parseInt(rs1.getString(1));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    */
+ 
+
+    private void addCost(String cost){
+        String sqlDelete = "UPDATE Patient SET Total_cost = ? WHERE Med_nbr = ?";
+        try {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sqlDelete);
+                stmt.setString(1, cost);
+                stmt.setString(2, this.medical_number);
+
+                stmt.execute();
+                stmt.close();
+                conn.close();
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
+    }
+
 
     private Boolean getCurrentWeek(String s) {
 
@@ -308,8 +350,6 @@ public class PatientViewController implements Initializable {
             return false;
         }
     }
-
-
 
     public static Boolean getDayNumberNew() {
         DayOfWeek day = java.time.LocalDate.now().getDayOfWeek();
