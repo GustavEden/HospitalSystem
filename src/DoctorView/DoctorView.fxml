@@ -51,7 +51,7 @@
         <Label layoutX="18.0" layoutY="481.0" text="Journal" />
         <Label layoutX="580.0" layoutY="481.0" text="Apointments" />
       <Button fx:id="showBtn" layoutX="478.0" layoutY="65.0" mnemonicParsing="false" onAction="#checkEmpID" text="Show" />
-      <Button fx:id="bookBtn" layoutX="762.0" layoutY="769.0" mnemonicParsing="false" text="Change availability" />
+      <Button fx:id="bookBtn" layoutX="762.0" layoutY="769.0" mnemonicParsing="false" onAction="#changeAvail" text="Change availability" />
       <Button layoutX="758.0" layoutY="434.0" mnemonicParsing="false" onAction="#createJournal" text="Add Jurnal" />
       <VBox layoutX="758.0" layoutY="186.0" prefHeight="245.0" prefWidth="225.0">
          <children>

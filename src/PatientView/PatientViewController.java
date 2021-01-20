@@ -298,8 +298,6 @@ public class PatientViewController implements Initializable {
             Connection conn = dbConnection.getConnection();
             ResultSet rs1 = conn.createStatement().executeQuery(sqlPrice);
             String s = rs1.getString(1);
-
-
             conn.close();
 
             return Integer.parseInt(s);

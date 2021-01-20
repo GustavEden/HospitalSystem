@@ -108,10 +108,41 @@ public class DoctorViewController implements Initializable {
     @FXML
     private TextField jurnalDateTF;
 
+    //Current Selected appointments
+    private String cSA;
+
 
     public void initialize(URL url, ResourceBundle rb){
         this.db = new dbConnection();
         showSelectedPatientJournal();
+        getSelectedTime();
+    }
+
+    private void getSelectedTime(){
+        appointmentTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                SchemaData dd = appointmentTable.getItems().get(appointmentTable.getSelectionModel().getSelectedIndex());
+                cSA = dd.getSchedule_id();
+            }
+        });
+    }
+
+    @FXML
+    private void changeAvail(ActionEvent event){
+            String sqlChange = "UPDATE Schema SET Availability = \" False \" WHERE Schedule_id=?";
+            try {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sqlChange);
+                stmt.setString(1, this.cSA);
+
+                stmt.execute();
+                stmt.close();
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        loadAppointments(empIdTF.getText());
     }
 
     @FXML
