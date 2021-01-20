@@ -6,6 +6,10 @@
       <change beforePath="$PROJECT_DIR$/HospitalDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalDB.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AdminView/AdminView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView/AdminView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DoctorView/DoctorViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoctorView/DoctorViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatientView/PatientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatientView/SchemaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/SchemaData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +63,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -98,7 +102,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EasyTurnament" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sqlite-jdbc-3.32.3.2.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -169,13 +173,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -221,7 +227,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
