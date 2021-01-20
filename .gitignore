@@ -174,3 +174,4 @@ $RECYCLE.BIN/
 .idea/EasyTournament.iml
 *.xml
 HospitalDB.db
+.idea/workspace.xml
