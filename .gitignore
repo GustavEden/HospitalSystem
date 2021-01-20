@@ -173,5 +173,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/java,macos,windows,intellij
 .idea/EasyTournament.iml
 *.xml
-HospitalDB.db
 .idea/workspace.xml

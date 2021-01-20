@@ -315,7 +315,7 @@ public class PatientViewController implements Initializable {
         }
         return 0;
     }
-    */
+*/
  
 
     private void addCost(String cost){
