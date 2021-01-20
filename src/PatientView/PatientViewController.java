@@ -12,15 +12,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -215,7 +216,7 @@ public class PatientViewController implements Initializable {
                     }
                     conn.close();
                 }catch (Exception e ){
-                    e.printStackTrace();
+
                 }
                 DateCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("date"));
                 Emp_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("emp_id"));
@@ -244,7 +245,7 @@ public class PatientViewController implements Initializable {
             }
             conn.close();
         }catch (Exception e ){
-            e.printStackTrace();
+
         }
         DateCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("date"));
         Emp_idCl.setCellValueFactory(new PropertyValueFactory<DoctorData, String>("emp_id"));
@@ -269,7 +270,13 @@ public class PatientViewController implements Initializable {
     @FXML
     private void book(ActionEvent event){
         if(getDayNumberNew()){
-            String sqlDelete = "UPDATE Schema SET Availability = \" False \" WHERE Schedule_id=?";
+
+            Date date = Date.valueOf(LocalDate.now());
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String time = LocalTime.now().format(dtf);
+            String dateTime = date + " " + time;
+
+            String sqlDelete = "UPDATE Schema SET Availability = \" False \", Booking_date = \"" + dateTime + "\"  WHERE Schedule_id=?";
             try {
                 Connection conn = dbConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sqlDelete);
@@ -345,7 +352,6 @@ public class PatientViewController implements Initializable {
 
 
     private Boolean getCurrentWeek(String s) {
-
         LocalDate date = LocalDate.now();
         WeekFields weekFields = WeekFields.of(Locale.getDefault());
         int goal = date.get(weekFields.weekOfWeekBasedYear()) + 1;

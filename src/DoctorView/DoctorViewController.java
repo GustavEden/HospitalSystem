@@ -276,9 +276,7 @@ public class DoctorViewController implements Initializable {
                                 result.getString(5),result.getString(6),result.getString(7)));
                     }
                     conn.close();
-                }catch (Exception e ){
-                    e.printStackTrace();
-                }
+                }catch (Exception e ){}
                 diagnosCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("diagnos"));
                 descriptionCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("description"));
                 medicineCL.setCellValueFactory(new PropertyValueFactory<JournalData, String>("medicine"));
