@@ -34,10 +34,8 @@ public class AdminViewController implements Initializable {
     //FXML
     @FXML
     private TextField empIdTF;
-
     @FXML
     private TextField fullNameTF;
-
     @FXML
     private TextField specTF;
     @FXML
@@ -75,7 +73,6 @@ public class AdminViewController implements Initializable {
     @FXML
     private TableColumn<JournalData,String> journalDateCL;
 
-
     //PatientData
     @FXML
     private TableColumn<PatientData,String> fNameCL;
@@ -111,6 +108,11 @@ public class AdminViewController implements Initializable {
 
     private ObservableList <SchemaData> schemaData;
 
+    //Add Price
+    @FXML
+    private TextField specializationTF;
+    @FXML
+    private TextField priceTF;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -121,6 +123,26 @@ public class AdminViewController implements Initializable {
         showSelectedPatientJournal();
         loadAppointments();
         showDoctorsSchema();
+    }
+
+    @FXML
+    private void addPrice(ActionEvent event) {
+        String sqlCreate = "INSERT INTO Cost (Specialization, Price) VALUES (?, ?)";
+        try {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sqlCreate);
+            stmt.setString(1, this.specializationTF.getText());
+            stmt.setString(2, this.priceTF.getText());
+
+            stmt.execute();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            this.specializationTF.clear();
+            this.priceTF.clear();
+        }
     }
 
     @FXML

@@ -58,7 +58,7 @@
       </TableView>
       <Separator layoutX="597.0" layoutY="14.0" orientation="VERTICAL" prefHeight="200.0" />
       <Button layoutX="18.0" layoutY="176.0" mnemonicParsing="false" onAction="#createDoctor" prefHeight="25.0" prefWidth="79.0" text="Add" />
-      <TableView fx:id="journalTable" layoutX="13.0" layoutY="563.0" prefHeight="245.0" prefWidth="974.0">
+      <TableView fx:id="journalTable" layoutX="13.0" layoutY="563.0" prefHeight="245.0" prefWidth="560.0">
         <columns>
           <TableColumn fx:id="diagnosCL" prefWidth="115.0" text="Diagnos" />
           <TableColumn fx:id="descriptionCL" prefWidth="79.0" text="Describtion" />
@@ -71,9 +71,10 @@
       </TableView>
       <TableView fx:id="appointmentTable" layoutX="614.0" layoutY="17.0" prefHeight="193.0" prefWidth="359.0">
         <columns>
-          <TableColumn fx:id="dateCL" prefWidth="179.0" text="Date" />
-          <TableColumn fx:id="empId_CL" prefWidth="72.0" text="Emp_id" />
-            <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="152.0" text="Schedule_id" />
+          <TableColumn fx:id="dateCL" prefWidth="97.0" text="Date" />
+          <TableColumn fx:id="empId_CL" prefWidth="49.0" text="Emp_id" />
+            <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="81.0" text="Schedule_id" />
+            <TableColumn fx:id="scheduleIdCL1" minWidth="3.0" prefWidth="95.0" text="Booking_time" />
         </columns>
       </TableView>
       <Button fx:id="deleteBtn" layoutX="236.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="25.0" prefWidth="79.0" text="Delete" />
@@ -81,5 +82,23 @@
       <Label layoutX="12.0" layoutY="543.0" text="Journal" />
       <Label layoutX="614.0" text="Booked Apointments" />
       <Label layoutX="16.0" text="Doctors" />
+      <Separator layoutX="576.0" layoutY="567.0" orientation="VERTICAL" prefHeight="238.0" prefWidth="15.0" />
+      <Separator layoutX="597.0" layoutY="546.0" prefHeight="12.0" prefWidth="393.0" />
+      <Label layoutX="593.0" layoutY="556.0" text="Add Prices" />
+      <VBox alignment="CENTER" layoutX="614.0" layoutY="586.0" prefHeight="200.0" prefWidth="274.0">
+         <children>
+            <TextField fx:id="specializationTF" promptText="Specialization">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="priceTF" promptText="Price">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <Button layoutX="906.0" layoutY="761.0" mnemonicParsing="false" onAction="#addPrice" text="Add Price" />
    </children>
 </AnchorPane>

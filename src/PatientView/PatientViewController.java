@@ -91,7 +91,11 @@ public class PatientViewController implements Initializable {
     private String currentEmp_id;
     private String currentSpec;
 
-
+    @Override
+    public void initialize (URL url, ResourceBundle rb){
+        this.db = new dbConnection();
+        getSelectedTime();
+    }
 
     public void medNbr(String nbr){
         medical_number = nbr;
@@ -164,13 +168,6 @@ public class PatientViewController implements Initializable {
 
         this.doctorTable.setItems(null);
         this.doctorTable.setItems(this.doctorData);
-    }
-
-
-    @Override
-    public void initialize (URL url, ResourceBundle rb){
-        this.db = new dbConnection();
-        getSelectedTime();
     }
 
     @FXML
