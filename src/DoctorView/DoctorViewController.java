@@ -242,7 +242,7 @@ public class DoctorViewController implements Initializable {
 
             while(result.next()){
                 schemaData.add(new SchemaData(result.getString(1),result.getString(2),
-                        result.getString(3),result.getString(4),result.getString(5)));
+                        result.getString(3),result.getString(4),result.getString(5),result.getString(6)));
             }
             conn.close();
         }catch (Exception e ){

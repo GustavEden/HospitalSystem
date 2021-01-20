@@ -43,7 +43,7 @@
             </TextField>
          </children>
       </VBox>
-      <TableView fx:id="patientTable" layoutX="13.0" layoutY="241.0" prefHeight="302.0" prefWidth="974.0">
+      <TableView fx:id="patientTable" layoutX="13.0" layoutY="241.0" prefHeight="302.0" prefWidth="981.0">
         <columns>
           <TableColumn fx:id="medIDCL" prefWidth="64.0" text="Med_id" />
           <TableColumn fx:id="fNameCL" prefWidth="86.0" text="First name" />
@@ -69,12 +69,13 @@
             <TableColumn fx:id="journalDateCL" prefWidth="89.0" text="Journal_date" />
         </columns>
       </TableView>
-      <TableView fx:id="appointmentTable" layoutX="614.0" layoutY="17.0" prefHeight="193.0" prefWidth="359.0">
+      <TableView fx:id="appointmentTable" layoutX="614.0" layoutY="17.0" prefHeight="193.0" prefWidth="380.0">
         <columns>
-          <TableColumn fx:id="dateCL" prefWidth="97.0" text="Date" />
-          <TableColumn fx:id="empId_CL" prefWidth="49.0" text="Emp_id" />
-            <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="81.0" text="Schedule_id" />
-            <TableColumn fx:id="scheduleIdCL1" minWidth="3.0" prefWidth="95.0" text="Booking_time" />
+          <TableColumn fx:id="dateCL" prefWidth="92.0" text="Date" />
+            <TableColumn fx:id="time_CL" prefWidth="60.0" text="Time" />
+          <TableColumn fx:id="empId_CL" prefWidth="48.0" text="Emp_id" />
+            <TableColumn fx:id="scheduleIdCL" minWidth="3.0" prefWidth="76.0" text="Schedule_id" />
+            <TableColumn fx:id="bookingTimeCL" minWidth="3.0" prefWidth="103.0" text="Booking_time" />
         </columns>
       </TableView>
       <Button fx:id="deleteBtn" layoutX="236.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteDoctor" prefHeight="25.0" prefWidth="79.0" text="Delete" />

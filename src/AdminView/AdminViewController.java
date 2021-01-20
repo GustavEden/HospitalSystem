@@ -3,7 +3,6 @@ package AdminView;
 import DB.dbConnection;
 import Patient.PatientLogIn;
 import PatientRegistration.PatientData;
-import PatientView.DoctorData;
 import PatientView.SchemaData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +21,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.temporal.WeekFields;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class AdminViewController implements Initializable {
@@ -29,9 +31,10 @@ public class AdminViewController implements Initializable {
     //Database connection
     private dbConnection db;
 
+    //PatientLogin instance
     private PatientLogIn patientLogIn = new PatientLogIn();
 
-    //FXML
+    //Add Doctor
     @FXML
     private TextField empIdTF;
     @FXML
@@ -41,17 +44,16 @@ public class AdminViewController implements Initializable {
     @FXML
     private TextField phoneTF;
 
+    //Doctor Table
     private ObservableList<DoctorData2> doctorData;
     @FXML
     private TableView<DoctorData2> doctorTable;
-
     @FXML
     private TableColumn<DoctorData2, String> emp_idCL;
     @FXML
     private TableColumn<DoctorData2, String> doctorCL;
 
-    private ObservableList<PatientData> patientData;
-
+    //Current DoctorID
     private String currentDrID;
 
     //journal
@@ -74,6 +76,7 @@ public class AdminViewController implements Initializable {
     private TableColumn<JournalData,String> journalDateCL;
 
     //PatientData
+    private ObservableList<PatientData> patientData;
     @FXML
     private TableColumn<PatientData,String> fNameCL;
     @FXML
@@ -92,21 +95,23 @@ public class AdminViewController implements Initializable {
     private TableColumn <PatientData,String>registrationCL;
     @FXML
     private TableColumn <PatientData,String>totalDebtCL;
-
     @FXML
     private TableView patientTable;
 
     //appointments
+    private ObservableList <SchemaData> schemaData;
     @FXML
     private TableView <SchemaData> appointmentTable;
     @FXML
     private TableColumn <SchemaData,String> dateCL;
     @FXML
+    private TableColumn <SchemaData,String> time_CL;
+    @FXML
     private TableColumn <SchemaData,String> empId_CL;
     @FXML
     private TableColumn <SchemaData,String> scheduleIdCL;
-
-    private ObservableList <SchemaData> schemaData;
+    @FXML
+    private TableColumn <SchemaData,String> bookingTimeCL;
 
     //Add Price
     @FXML
@@ -121,7 +126,7 @@ public class AdminViewController implements Initializable {
         selectDoctor();
         loadPatient();
         showSelectedPatientJournal();
-        loadAppointments();
+        //loadAppointments();
         showDoctorsSchema();
     }
 
@@ -200,25 +205,27 @@ public class AdminViewController implements Initializable {
             public void handle(MouseEvent mouseEvent) {
                 DoctorData2 dd = doctorTable.getItems().get(doctorTable.getSelectionModel().getSelectedIndex());
 
-                String schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id() + " AND Availability = False";
+                String schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id() + " AND Availability = \"False\"";
                 try{
                     Connection conn = dbConnection.getConnection();
                     schemaData = FXCollections.observableArrayList();
                     ResultSet result = conn.createStatement().executeQuery(schemaQuery);
 
                     while(result.next()){
-                        schemaData.add(new SchemaData(result.getString(1),result.getString(2),
-                                result.getString(3),result.getString(4),result.getString(5)));
+                        if(getCurrentWeek(result.getString(1))){
+                            schemaData.add(new SchemaData(result.getString(1),result.getString(2),
+                                    result.getString(3),result.getString(4),result.getString(5),result.getString(6)));
+                        }
                     }
                     conn.close();
                 }catch (Exception e ){
-                    e.printStackTrace();
+
                 }
                 dateCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("date"));
+                time_CL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("time"));
                 empId_CL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("emp_id"));
                 scheduleIdCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("schedule_id"));
-
-
+                bookingTimeCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("bookedTime"));
 
                 appointmentTable.setItems(null);
                 appointmentTable.setItems(schemaData);
@@ -226,7 +233,20 @@ public class AdminViewController implements Initializable {
         });
     }
 
+    private Boolean getCurrentWeek(String s) {
+        LocalDate date = LocalDate.now();
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        int thisWeek = date.get(weekFields.weekOfWeekBasedYear());
 
+        LocalDate d = LocalDate.parse(s);
+        int now = d.get(weekFields.weekOfWeekBasedYear());
+
+        if(thisWeek <= now){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
     @FXML
     private void deleteDoctor(ActionEvent event){
@@ -330,7 +350,7 @@ public class AdminViewController implements Initializable {
             }
         });
     }
-
+/*
     public void loadAppointments(){
        String schemaQuery = "SELECT * FROM Schema Where Availability= \" True \"";
         try{
@@ -340,7 +360,7 @@ public class AdminViewController implements Initializable {
 
             while(result.next()){
                 schemaData.add(new SchemaData(result.getString(1),result.getString(2),
-                        result.getString(3),result.getString(4),result.getString(5)));
+                        result.getString(3),result.getString(4),result.getString(5),result.getString(6)));
             }
             conn.close();
         }catch (Exception e ){
@@ -353,6 +373,8 @@ public class AdminViewController implements Initializable {
         appointmentTable.setItems(null);
         appointmentTable.setItems(schemaData);
     }
+    */
+
 }
     
     

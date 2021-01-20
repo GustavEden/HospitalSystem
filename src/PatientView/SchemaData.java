@@ -10,13 +10,15 @@ public class SchemaData {
     private final StringProperty schedule_id;
     private final StringProperty availability;
     private final StringProperty time;
+    private final StringProperty bookedTime;
 
-    public SchemaData(String date, String emp_id, String schedule_id, String availability, String time){
+    public SchemaData(String date, String emp_id, String schedule_id, String availability, String time, String bookedTime){
         this.date = new SimpleStringProperty(date);
         this.emp_id= new SimpleStringProperty(emp_id);
         this.schedule_id = new SimpleStringProperty(schedule_id);
         this.availability = new SimpleStringProperty(availability);
         this.time = new SimpleStringProperty(time);
+        this.bookedTime = new SimpleStringProperty(bookedTime);
     }
 
     public String getDate() {
@@ -77,5 +79,17 @@ public class SchemaData {
 
     public void setTime(String time) {
         this.time.set(time);
+    }
+
+    public String getBookedTime() {
+        return bookedTime.get();
+    }
+
+    public StringProperty bookedTimeProperty() {
+        return bookedTime;
+    }
+
+    public void setBookedTime(String bookedTime) {
+        this.bookedTime.set(bookedTime);
     }
 }
