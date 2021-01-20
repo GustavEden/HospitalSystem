@@ -51,41 +51,41 @@
         <Label layoutX="18.0" layoutY="481.0" text="Journal" />
         <Label layoutX="580.0" layoutY="481.0" text="Apointments" />
       <Button fx:id="showBtn" layoutX="478.0" layoutY="65.0" mnemonicParsing="false" onAction="#checkEmpID" text="Show" />
-      <Button fx:id="bookBtn" layoutX="762.0" layoutY="769.0" mnemonicParsing="false" text="Book" />
-      <Button layoutX="758.0" layoutY="434.0" mnemonicParsing="false" text="Add Jurnal" />
+      <Button fx:id="bookBtn" layoutX="762.0" layoutY="769.0" mnemonicParsing="false" text="Change availability" />
+      <Button layoutX="758.0" layoutY="434.0" mnemonicParsing="false" onAction="#createJournal" text="Add Jurnal" />
       <VBox layoutX="758.0" layoutY="186.0" prefHeight="245.0" prefWidth="225.0">
          <children>
-            <TextField promptText="Diagnos">
+            <TextField fx:id="diagnosTF" promptText="Diagnos">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Description">
+            <TextField fx:id="descriptionTF" promptText="Description">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Medecine">
+            <TextField fx:id="medecineTF" promptText="Medecine">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Jurnal id">
+            <TextField fx:id="jurnalIDTF" promptText="Jurnal id">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Med_nbr">
+            <TextField fx:id="medNbrTF" promptText="Med_nbr">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Emp id">
+            <TextField fx:id="empIDTF" promptText="Emp id">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Jurnal date">
+            <TextField fx:id="jurnalDateTF" promptText="Jurnal date">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>

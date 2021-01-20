@@ -53,6 +53,36 @@ public class PatientLogIn {
         }
     }
 
+    public boolean checkJournalID(String journalID) throws Exception {
+        PreparedStatement pr = null;
+        ResultSet rs = null;
+        String sql = "SELECT Journal_id FROM Journal WHERE Journal_id = ? ";
+
+        try {
+            pr = this.connection.prepareStatement(sql);
+            pr.setString(1, journalID);
+
+            rs = pr.executeQuery();
+
+            boolean bol1;
+
+            if (rs.next()) {
+                return true;
+            }
+            return false;
+
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        finally {
+            pr.close();
+            rs.close();
+        }
+    }
+
     public boolean checkEmpId(String empNbr) throws Exception {
         PreparedStatement pr = null;
         ResultSet rs = null;

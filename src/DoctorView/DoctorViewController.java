@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
@@ -91,11 +92,69 @@ public class DoctorViewController implements Initializable {
     @FXML
     private TableColumn<JournalData,String> journalDateCL;
 
+    //Jurnal
+    @FXML
+    private TextField  diagnosTF;
+    @FXML
+    private TextField  descriptionTF;
+    @FXML
+    private TextField medecineTF;
+    @FXML
+    private TextField jurnalIDTF;
+    @FXML
+    private TextField medNbrTF;
+    @FXML
+    private TextField empIDTF;
+    @FXML
+    private TextField jurnalDateTF;
+
 
     public void initialize(URL url, ResourceBundle rb){
         this.db = new dbConnection();
         showSelectedPatientJournal();
     }
+
+    @FXML
+    private void createJournal(ActionEvent event) {
+        try{
+            if(!this.patientLogIn.checkJournalID(this.jurnalIDTF.getText()) && !this.jurnalIDTF.getText().isEmpty()){
+                String sqlCreate = "INSERT INTO Journal (Diagnos, Description, Medicine, Journal_id, Med_nbr, Emp_id, Journal_date) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                try{
+                    Connection conn = dbConnection.getConnection();
+                    PreparedStatement stmt= conn.prepareStatement(sqlCreate);
+                    stmt.setString(1,this.diagnosTF.getText());
+                    stmt.setString(2,this.descriptionTF.getText());
+                    stmt.setString(3,this.medecineTF.getText());
+                    stmt.setString(4,this.jurnalIDTF.getText());
+                    stmt.setString(5,this.medNbrTF.getText());
+                    stmt.setString(6,this.empIDTF.getText());
+                    stmt.setString(7,this.jurnalDateTF.getText());
+
+                    stmt.execute();
+                    stmt.close();
+                    conn.close();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Medical number already exist or is empty");
+                alert.showAndWait();
+            }
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Something went wrong");
+            alert.showAndWait();
+        }
+    }
+
+
+
     @FXML
     private void checkEmpID(ActionEvent event){
         try {

@@ -47,7 +47,6 @@ public class PatientViewController implements Initializable {
     //Database connection
     private dbConnection db;
 
-
     // DoctorTable variables
     private ObservableList <DoctorData> doctorData;
     @FXML
@@ -61,7 +60,7 @@ public class PatientViewController implements Initializable {
     @FXML
     private TextField doctorSearchTF;
 
-    // SchemaTable variables
+    //SchemaTable variables
     private ObservableList <SchemaData> schemaData;
     @FXML
     private TableView<SchemaData> schemaTable;
@@ -202,7 +201,7 @@ public class PatientViewController implements Initializable {
                 DoctorData dd = doctorTable.getItems().get(doctorTable.getSelectionModel().getSelectedIndex());
                 currentEmp_id = dd.getEmp_id();
                 currentSpec = dd.getSpecialization();
-                schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id();
+                schemaQuery = "SELECT * FROM Schema Where Emp_id = " + dd.getEmp_id() + " AND Availability = \"True\"";
                 try{
                     Connection conn = dbConnection.getConnection();
                     schemaData = FXCollections.observableArrayList();
@@ -238,8 +237,10 @@ public class PatientViewController implements Initializable {
             ResultSet result = conn.createStatement().executeQuery(schemaQuery);
 
             while(result.next()){
-                schemaData.add(new SchemaData(result.getString(1),result.getString(2),
-                        result.getString(3),result.getString(4),result.getString(5)));
+                if(getCurrentWeek(result.getString(1))){
+                    schemaData.add(new SchemaData(result.getString(1),result.getString(2),
+                            result.getString(3),result.getString(4),result.getString(5)));
+                }
             }
             conn.close();
         }catch (Exception e ){
@@ -280,6 +281,7 @@ public class PatientViewController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            addCost();
             updateDoctorsScheme();
         }else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -291,39 +293,48 @@ public class PatientViewController implements Initializable {
     }
 
     private int getPrice(){
-        String sqlDelete = "SELECT Price FROM Cost Where Specialization = \" " + currentSpec + " \"";
+        String sqlPrice = "SELECT Cost.Price FROM Cost Where Specialization = \"" + currentSpec + "\"";
         try{
             Connection conn = dbConnection.getConnection();
-            ResultSet rs1 = conn.createStatement().executeQuery(sqlDelete);
-            conn.close();
-            return Integer.parseInt(rs1.getString(1));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return 0;
-    }
-/*
-    private void getCurrentTotalCost(){
-        String sqlDelete = "SELECT Total_cost FROM Cost Where Specialization = \" " + currentSpec + " \"";
-        try{
-            Connection conn = dbConnection.getConnection();
-            ResultSet rs1 = conn.createStatement().executeQuery(sqlDelete);
-            conn.close();
-            return Integer.parseInt(rs1.getString(1));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return 0;
-    }
-*/
- 
+            ResultSet rs1 = conn.createStatement().executeQuery(sqlPrice);
+            String s = rs1.getString(1);
 
-    private void addCost(String cost){
+
+            conn.close();
+
+            return Integer.parseInt(s);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private int getCurrentTotalCost(){
+        String sqlDelete = "SELECT Total_cost FROM Patient Where Med_nbr = " + medical_number;
+        try{
+            Connection conn = dbConnection.getConnection();
+            ResultSet rs1 = conn.createStatement().executeQuery(sqlDelete);
+            String s = rs1.getString(1);
+
+            conn.close();
+
+            return Integer.parseInt(s);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private void addCost(){
+        int one = getPrice();
+        int two = getCurrentTotalCost();
+        int total = one + two;
+        String s =String.valueOf(total);
         String sqlDelete = "UPDATE Patient SET Total_cost = ? WHERE Med_nbr = ?";
         try {
                 Connection conn = dbConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sqlDelete);
-                stmt.setString(1, cost);
+                stmt.setString(1, s);
                 stmt.setString(2, this.medical_number);
 
                 stmt.execute();
@@ -356,7 +367,7 @@ public class PatientViewController implements Initializable {
         if(day.equals("FRIDAY")){
             return true;
         } else {
-            return false;
+            return true;
         }
     }
 }
