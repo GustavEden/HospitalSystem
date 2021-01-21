@@ -17,11 +17,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.WeekFields;
-import java.util.Calendar;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -273,7 +271,7 @@ public class PatientViewController implements Initializable {
             String time = LocalTime.now().format(dtf);
             String dateTime = date + " " + time;
 
-            String sqlDelete = "UPDATE Schema SET Availability = \" False \", Booking_date = \"" + dateTime + "\"  WHERE Schedule_id=?";
+            String sqlDelete = "UPDATE Schema SET Availability = \"False\", Booking_date = \"" + dateTime + "\"  WHERE Schedule_id=?";
             try {
                 Connection conn = dbConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sqlDelete);
