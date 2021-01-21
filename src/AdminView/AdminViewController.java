@@ -18,10 +18,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -126,7 +126,6 @@ public class AdminViewController implements Initializable {
         selectDoctor();
         loadPatient();
         showSelectedPatientJournal();
-        //loadAppointments();
         showDoctorsSchema();
     }
 
@@ -160,17 +159,19 @@ public class AdminViewController implements Initializable {
                     PreparedStatement stmt = conn.prepareStatement(sqlCreate);
                     stmt.setString(1, this.empIdTF.getText());
                     stmt.setString(2, this.fullNameTF.getText());
-                    stmt.setString(3, this.specTF.getText());
-                    stmt.setString(4, this.phoneTF.getText());
+                    stmt.setString(3, this.phoneTF.getText());
+                    stmt.setString(4, this.specTF.getText());
+
 
 
                     stmt.execute();
                     stmt.close();
                     conn.close();
+
+                    createSchema(empIdTF.getText());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
@@ -187,6 +188,44 @@ public class AdminViewController implements Initializable {
             e.printStackTrace();
         }
         loadDoctors();
+    }
+
+    private void createSchema(String emp_id) {
+        LocalDate ld = LocalDate.now();
+        ld = ld.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+        for (int i = 0; i < 5; i++) {
+            String time = "09.00";
+            for (int j = 0; j < 4; j++) {
+
+                String sqlCreate = "INSERT INTO Schema (Date, Emp_id, Availability, Time) VALUES (?, ?, ?, ?)";
+                try {
+                    Connection conn = dbConnection.getConnection();
+                    PreparedStatement stmt = conn.prepareStatement(sqlCreate);
+                    stmt.setString(1, String.valueOf(ld));
+                    stmt.setString(2, emp_id);
+                    stmt.setString(3, "True");
+                    stmt.setString(4, time);
+
+                    stmt.execute();
+                    stmt.close();
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                switch (time) {
+                    case "09.00":
+                        time = "09.30";
+                        break;
+                    case "09.30":
+                        time = "10.00";
+                        break;
+                    case "10.00":
+                        time = "10.30";
+                        break;
+                }
+            }
+            ld  = ld.plusDays(1);
+        }
     }
 
     private void selectDoctor() {
@@ -350,31 +389,6 @@ public class AdminViewController implements Initializable {
             }
         });
     }
-/*
-    public void loadAppointments(){
-       String schemaQuery = "SELECT * FROM Schema Where Availability= \" True \"";
-        try{
-            Connection conn = dbConnection.getConnection();
-            schemaData = FXCollections.observableArrayList();
-            ResultSet result = conn.createStatement().executeQuery(schemaQuery);
-
-            while(result.next()){
-                schemaData.add(new SchemaData(result.getString(1),result.getString(2),
-                        result.getString(3),result.getString(4),result.getString(5),result.getString(6)));
-            }
-            conn.close();
-        }catch (Exception e ){
-            e.printStackTrace();
-        }
-        dateCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("date"));
-        empId_CL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("emp_id"));
-        scheduleIdCL.setCellValueFactory(new PropertyValueFactory<SchemaData, String>("schedule_id"));
-
-        appointmentTable.setItems(null);
-        appointmentTable.setItems(schemaData);
-    }
-    */
-
 }
     
     

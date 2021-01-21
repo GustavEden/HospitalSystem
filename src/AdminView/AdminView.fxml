@@ -7,11 +7,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="808.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminView.AdminViewController">
    <children>
+      <ImageView fitHeight="829.0" fitWidth="1033.0">
+         <image>
+            <Image url="/images/doctor.png" />
+         </image>
+      </ImageView>
       <TableView fx:id="doctorTable" layoutX="330.0" layoutY="14.0" prefHeight="193.0" prefWidth="253.0">
         <columns>
           <TableColumn fx:id="doctorCL" prefWidth="101.0" text="Doctor" />
