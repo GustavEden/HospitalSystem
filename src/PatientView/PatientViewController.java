@@ -366,7 +366,7 @@ public class PatientViewController implements Initializable {
         if(day.equals("FRIDAY")){
             return true;
         } else {
-            return true;
+            return false;
         }
     }
 }

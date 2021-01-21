@@ -289,11 +289,12 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private void deleteDoctor(ActionEvent event){
-        String sqlDelete = "DELETE FROM Doctor WHERE Emp_id=?";
+        DoctorData2 dd = doctorTable.getItems().get(doctorTable.getSelectionModel().getSelectedIndex());
+        String sqlDelete = "DELETE FROM Doctor WHERE Emp_id = " + dd.getEmp_id();
         try {
             Connection conn = dbConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sqlDelete);
-            stmt.setString(1, this.currentDrID);
+            //stmt.setString(1, this.currentDrID);
 
             stmt.execute();
             stmt.close();

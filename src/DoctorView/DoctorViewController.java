@@ -4,7 +4,6 @@ import AdminView.JournalData;
 import DB.dbConnection;
 import Patient.PatientLogIn;
 import PatientRegistration.PatientData;
-import PatientView.DoctorData;
 import PatientView.SchemaData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,13 +18,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-
 
 public class DoctorViewController implements Initializable {
     //Database connection
@@ -130,7 +127,7 @@ public class DoctorViewController implements Initializable {
 
     @FXML
     private void changeAvail(ActionEvent event){
-            String sqlChange = "UPDATE Schema SET Availability = \" False \" WHERE Schedule_id=?";
+            String sqlChange = "UPDATE Schema SET Availability = \"False\" WHERE Schedule_id=?";
             try {
                 Connection conn = dbConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sqlChange);
