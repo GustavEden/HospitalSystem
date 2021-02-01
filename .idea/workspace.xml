@@ -4,8 +4,7 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HospitalDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminView/AdminViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DoctorView/DoctorViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoctorView/DoctorViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalSystem/PatientView/PatientViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientView/PatientViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,17 +169,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -248,6 +236,9 @@
       <workItem from="1611148290365" duration="6291000" />
       <workItem from="1611173936208" duration="5086000" />
       <workItem from="1611232030177" duration="4730000" />
+      <workItem from="1611821127701" duration="197000" />
+      <workItem from="1612195750724" duration="567000" />
+      <workItem from="1612209705794" duration="644000" />
     </task>
     <servers />
   </component>
@@ -276,42 +267,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/HospitalFXML" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AdminView/AdminViewController.java</url>
-          <line>293</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AdminView/AdminViewController.java</url>
-          <line>291</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AdminView/AdminViewController.java</url>
-          <line>299</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AdminView/AdminViewController.java</url>
-          <line>303</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AdminView/AdminViewController.java</url>
-          <line>235</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AdminView/AdminViewController.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

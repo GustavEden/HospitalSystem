@@ -265,7 +265,6 @@ public class PatientViewController implements Initializable {
     @FXML
     private void book(ActionEvent event){
         if(getDayNumberNew()){
-
             Date date = Date.valueOf(LocalDate.now());
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
             String time = LocalTime.now().format(dtf);
